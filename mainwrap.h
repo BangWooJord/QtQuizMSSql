@@ -4,6 +4,7 @@
 #include <QWidget>
 #include <QStackedWidget>
 #include <QKeyEvent>
+#include <QtGui>
 #include "mainwindow.h"
 #include "regwindow.h"
 #include "secwindow.h"

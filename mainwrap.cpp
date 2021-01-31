@@ -2,12 +2,11 @@
 #include "ui_mainwrap.h"
 
 mainWrap::mainWrap(QWidget *parent) :
-    QWidget(parent),
+    QWidget(parent, Qt::FramelessWindowHint),
     ui(new Ui::mainWrap)
 {
     ui->setupUi(this);
         this->setFixedSize(400,450);
-        this->setWindowFlag(Qt::FramelessWindowHint);
         this->setAttribute(Qt::WA_TranslucentBackground);
     main_window = new MainWindow(this);
         connect(main_window, &MainWindow::leaveApp, this, &mainWrap::exitApp);
