@@ -54,7 +54,5 @@ private:
     QLabel *empty_pswd_lbl;
     QLineEdit *username;
     QLineEdit *password;
-    secWindow *second_window;
-    regWindow *reg_window;
 };
 #endif // MAINWINDOW_H

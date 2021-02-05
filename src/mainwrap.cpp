@@ -18,6 +18,7 @@ mainWrap::mainWrap(QWidget *parent) :
         connect(reg_window, &regWindow::firstWindow, main_window, &MainWindow::returnToMain);
     second_window = new secWindow(this);
         connect(second_window, &secWindow::firstWindow, this, &mainWrap::returnMain);
+
     widget_stack = new QStackedWidget(this);
         widget_stack->setGeometry(QRect(0,0, 400, 450));
         widget_stack->addWidget(main_window);

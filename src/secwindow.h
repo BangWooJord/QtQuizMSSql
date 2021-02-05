@@ -5,8 +5,10 @@
 #include <QLineEdit>
 #include <QString>
 #include <QPushButton>
+#include <QStackedWidget>
 #include <iostream>
 #include "layoutHelp.h"
+#include "menuwindow.h"
 
 namespace Ui {
 class secWindow;
@@ -29,6 +31,8 @@ public slots:
 private:
     Ui::secWindow *ui;
     QPushButton *logout_btn;
+    QStackedWidget *widget_stack;
+    menuWindow *menu_window;
 };
 
 #endif // secWindow_H
