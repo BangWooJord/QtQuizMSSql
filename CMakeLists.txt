@@ -11,7 +11,7 @@ set(QT_VERSION 5)
 set(REQUIRED_LIBS Core Gui Widgets)
 set(REQUIRED_LIBS_QUALIFIED Qt5::Core Qt5::Gui Qt5::Widgets)
 
-add_executable(${PROJECT_NAME} main.cpp mainwrap.h mainwrap.cpp mainwindow.h mainwindow.cpp regwindow.h regwindow.cpp secwindow.h secwindow.cpp layoutHelp.h layoutHelp.cpp)
+add_executable(${PROJECT_NAME} main.cpp src/mainwrap.h src/mainwrap.cpp src/mainwindow.h src/mainwindow.cpp src/regwindow.h src/regwindow.cpp src/secwindow.h src/secwindow.cpp src/layoutHelp.h src/layoutHelp.cpp)
 
 if (NOT CMAKE_PREFIX_PATH)
     message(WARNING "CMAKE_PREFIX_PATH is not defined, you may need to set it "
