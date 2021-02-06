@@ -63,6 +63,12 @@ MainWindow::MainWindow(QWidget *parent)
                                 "font-size: 20px;"
                                 "font-weight: 500;"
                                 "padding-right: 20px;");
+    title_lbl = createTemplate(title_lbl, this, "Quiz", SIZE_AND_PLACE(hsize+10, vsize, xpos, 40));
+        title_lbl->setAlignment(Qt::AlignCenter);
+        title_lbl->setStyleSheet("font-size: 40px;"
+                                 "font-weight: 900;"
+                                 "color: #f99e1b;"
+                                 "");
     usr_lbl = createTemplate(usr_lbl, this, "Username", SIZE_AND_PLACE(hsize, vsize/2, xpos, ypos-30));
         usr_lbl->setAlignment(Qt::AlignRight);
     pswd_lbl = createTemplate(pswd_lbl, this, "Password", SIZE_AND_PLACE(hsize, vsize/2, xpos, ypos+2*vsize-30));

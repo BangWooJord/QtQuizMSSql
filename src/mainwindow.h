@@ -52,6 +52,7 @@ private:
     QLabel *pswd_lbl;
     QLabel *warning_lbl;
     QLabel *empty_pswd_lbl;
+    QLabel *title_lbl;
     QLineEdit *username;
     QLineEdit *password;
 };

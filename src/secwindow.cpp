@@ -11,9 +11,9 @@ secWindow::secWindow(QWidget *parent) :
         this->setWindowFlag(Qt::FramelessWindowHint);
 
     menu_window = new menuWindow(this);
-
+        connect(menu_window, SIGNAL(firstWindow()), this, SLOT(logOutSlot()));
     widget_stack = new QStackedWidget(this);
-        widget_stack->setGeometry(QRect(0,0, 400, 450));
+        widget_stack->setGeometry(QRect(0,50, 400, 400));
         widget_stack->addWidget(menu_window);
         widget_stack->show();
 //    logout_btn = createTemplate(logout_btn, this, "Log out", SIZE_AND_PLACE(100, 40, 10,10));
@@ -35,24 +35,11 @@ secWindow::~secWindow()
 }
 ////////////METHODS///////////////
 
-template <typename T>
-T* secWindow::createTemplate(T *new_smth, QWidget *p, QString text, SIZE_AND_PLACE sp){
-    new_smth = new T(text, p);
-    new_smth->setGeometry(QRect(QPoint(sp.xpos, sp.ypos), QSize(sp.hsize, sp.vsize)));
-    new_smth->setStyleSheet("font-size: 22px;"
-                            "font-weight: 600;"
-                            "border-radius: 25px;"
-                            "color: #990033;"
-                            "padding-right: 20px;");
-    return new_smth;
-}
-
 ///////////SLOTS//////////////////
 void secWindow::exitApp(){
     this->close();
 }
 
-void secWindow::logout(){
-    this->close();
-    emit firstWindow();
+void secWindow::logOutSlot(){
+    emit(firstWindow());
 }
