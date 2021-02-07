@@ -160,18 +160,6 @@ void MainWindow::keyPressEvent(QKeyEvent *event){
     }
 }
 
-template <typename T>
-T* MainWindow::createTemplate(T *new_smth, QWidget *p, QString text, SIZE_AND_PLACE sp){
-    new_smth = new T(text, p);
-    new_smth->setGeometry(QRect(QPoint(sp.xpos, sp.ypos), QSize(sp.hsize, sp.vsize)));
-    new_smth->setStyleSheet("font-size: 22px;"
-                            "font-weight: 600;"
-                            "border-radius: 25px;"
-                            "color: #990033;"
-                            "padding-right: 20px;");
-    return new_smth;
-}
-
 void MainWindow::paintEvent(QPaintEvent *event){
 
     QPen pen;

@@ -21,8 +21,6 @@ class regWindow : public QWidget
 public:
     explicit regWindow(QWidget *parent = nullptr);
     ~regWindow();
-    template <typename T>
-    T* createTemplate(T *new_smth, QWidget *p, QString text, SIZE_AND_PLACE sp);
 signals:
     void firstWindow();
 private slots:

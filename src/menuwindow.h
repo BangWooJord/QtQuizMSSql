@@ -3,16 +3,12 @@
 
 #include <QWidget>
 #include <QPushButton>
-#include <QVBoxLayout>
 #include <iostream>
 #include "layoutHelp.h"
 
 QT_BEGIN_NAMESPACE
 namespace Ui { class menuWindow; }
 QT_END_NAMESPACE
-
-template <typename T>
-T* createTemplate(T *new_smth, QWidget *p, QString text, SIZE_AND_PLACE sp);
 
 class menuWindow : public QWidget {
 Q_OBJECT

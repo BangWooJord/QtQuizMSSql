@@ -21,14 +21,15 @@ QT_BEGIN_NAMESPACE
 namespace Ui { class MainWindow; }
 QT_END_NAMESPACE
 
+template <typename T>
+T* createTemplate(T *new_smth, QWidget *p, QString text, SIZE_AND_PLACE sp);
+
 class MainWindow : public QMainWindow
 {
     Q_OBJECT
 public:
     explicit MainWindow(QWidget *parent = nullptr);
     ~MainWindow();
-    template <typename T>
-    T* createTemplate(T *new_smth, QWidget *p, QString text, SIZE_AND_PLACE sp);
     void connectToDb(QString db_protocol, QString ip, QString db_name);
     void keyPressEvent(QKeyEvent *event ) override;
     void paintEvent(QPaintEvent *event) override;
