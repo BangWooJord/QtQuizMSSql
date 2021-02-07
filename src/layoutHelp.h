@@ -2,6 +2,9 @@
 #define QTQUIZBABE_LAYOUTHELP_H
 
 #include <QWidget>
+#include <QPushButton>
+#include <QLabel>
+#include <QLineEdit>
 
 struct SIZE_AND_PLACE{
     int hsize;

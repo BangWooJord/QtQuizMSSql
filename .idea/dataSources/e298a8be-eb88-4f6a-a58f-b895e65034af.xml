@@ -2,8 +2,8 @@
 <dataSource name="Microsoft SQL Server - QUIZDB@127.0.0.1">
   <database-model serializer="dbm" dbms="MSSQL" family-id="MSSQL" format-version="4.20">
     <root id="1">
-      <ServerVersion>15.0.2000</ServerVersion>
-      <PermissionsCheckSum>43840693215</PermissionsCheckSum>
+      <ServerVersion>15.0.2080</ServerVersion>
+      <PermissionsCheckSum>43840689887</PermissionsCheckSum>
       <Grants>0|root||1|connect sql|G
 0|root||2|view any database|G
 0|root||101|view any definition|G
@@ -14,11 +14,9 @@
 0|root||105|control server|G
 0|root||105|view any definition|G
 0|root||106|view any definition|G
-0|root||256|connect sql|G
 0|root||257|connect sql|G
 0|root||257|view any definition|G
 0|root||257|view server state|G
-0|root||258|connect sql|G
 0|root||259|connect sql|G
 0|root||260|connect sql|G
 0|root||261|connect sql|G
@@ -32,6 +30,8 @@
 0|root||265|connect sql|G
 0|root||265|view any definition|G
 0|root||265|view server state|G
+0|root||266|connect sql|G
+0|root||267|connect sql|G
 2|||2|connect|G
 3|||2|connect|G
 4|||2|connect|G
@@ -200,171 +200,229 @@
       <Enabled>1</Enabled>
       <DefaultDatabase>master</DefaultDatabase>
     </login>
-    <schema id="32" parent="2" name="INFORMATION_SCHEMA">
+    <login id="32" parent="1" name="##MS_PolicyEventProcessingLogin##">
+      <ObjectId>266</ObjectId>
+      <DefaultDatabase>master</DefaultDatabase>
+    </login>
+    <login id="33" parent="1" name="##MS_AgentSigningCertificate##">
+      <ObjectId>267</ObjectId>
+      <Type>certificate-mapped-login</Type>
+      <Enabled>1</Enabled>
+      <DefaultDatabase>master</DefaultDatabase>
+    </login>
+    <schema id="34" parent="2" name="INFORMATION_SCHEMA">
       <ObjectId>3</ObjectId>
     </schema>
-    <schema id="33" parent="2" name="db_accessadmin">
+    <schema id="35" parent="2" name="db_accessadmin">
       <ObjectId>16385</ObjectId>
     </schema>
-    <schema id="34" parent="2" name="db_backupoperator">
+    <schema id="36" parent="2" name="db_backupoperator">
       <ObjectId>16389</ObjectId>
     </schema>
-    <schema id="35" parent="2" name="db_datareader">
+    <schema id="37" parent="2" name="db_datareader">
       <ObjectId>16390</ObjectId>
     </schema>
-    <schema id="36" parent="2" name="db_datawriter">
+    <schema id="38" parent="2" name="db_datawriter">
       <ObjectId>16391</ObjectId>
     </schema>
-    <schema id="37" parent="2" name="db_ddladmin">
+    <schema id="39" parent="2" name="db_ddladmin">
       <ObjectId>16387</ObjectId>
     </schema>
-    <schema id="38" parent="2" name="db_denydatareader">
+    <schema id="40" parent="2" name="db_denydatareader">
       <ObjectId>16392</ObjectId>
     </schema>
-    <schema id="39" parent="2" name="db_denydatawriter">
+    <schema id="41" parent="2" name="db_denydatawriter">
       <ObjectId>16393</ObjectId>
     </schema>
-    <schema id="40" parent="2" name="db_owner">
+    <schema id="42" parent="2" name="db_owner">
       <ObjectId>16384</ObjectId>
     </schema>
-    <schema id="41" parent="2" name="db_securityadmin">
+    <schema id="43" parent="2" name="db_securityadmin">
       <ObjectId>16386</ObjectId>
     </schema>
-    <schema id="42" parent="2" name="dbo">
+    <schema id="44" parent="2" name="dbo">
       <ObjectId>1</ObjectId>
-      <IntrospectionTimestamp>2021-01-31.15:32:20.113</IntrospectionTimestamp>
+      <IntrospectionTimestamp>2021-02-07.18:43:06.727</IntrospectionTimestamp>
       <Current>1</Current>
     </schema>
-    <schema id="43" parent="2" name="guest">
+    <schema id="45" parent="2" name="guest">
       <ObjectId>2</ObjectId>
     </schema>
-    <schema id="44" parent="2" name="sys">
+    <schema id="46" parent="2" name="sys">
       <ObjectId>4</ObjectId>
     </schema>
-    <role id="45" parent="2" name="public">
+    <role id="47" parent="2" name="public">
       <ObjectId>0</ObjectId>
       <OwnerId>1</OwnerId>
       <Type>database-role</Type>
       <AuthType>none</AuthType>
     </role>
-    <role id="46" parent="2" name="dbo">
+    <role id="48" parent="2" name="dbo">
       <ObjectId>1</ObjectId>
       <Type>windows-user</Type>
       <DefaultSchema>dbo</DefaultSchema>
       <AuthType>windows</AuthType>
     </role>
-    <role id="47" parent="2" name="guest">
+    <role id="49" parent="2" name="guest">
       <ObjectId>2</ObjectId>
       <DefaultSchema>guest</DefaultSchema>
       <AuthType>none</AuthType>
     </role>
-    <role id="48" parent="2" name="INFORMATION_SCHEMA">
+    <role id="50" parent="2" name="INFORMATION_SCHEMA">
       <ObjectId>3</ObjectId>
       <AuthType>none</AuthType>
     </role>
-    <role id="49" parent="2" name="sys">
+    <role id="51" parent="2" name="sys">
       <ObjectId>4</ObjectId>
       <AuthType>none</AuthType>
     </role>
-    <role id="50" parent="2" name="db_owner">
+    <role id="52" parent="2" name="db_owner">
       <ObjectId>16384</ObjectId>
       <OwnerId>1</OwnerId>
       <Type>database-role</Type>
       <AuthType>none</AuthType>
     </role>
-    <role id="51" parent="2" name="db_accessadmin">
+    <role id="53" parent="2" name="db_accessadmin">
       <ObjectId>16385</ObjectId>
       <OwnerId>1</OwnerId>
       <Type>database-role</Type>
       <AuthType>none</AuthType>
     </role>
-    <role id="52" parent="2" name="db_securityadmin">
+    <role id="54" parent="2" name="db_securityadmin">
       <ObjectId>16386</ObjectId>
       <OwnerId>1</OwnerId>
       <Type>database-role</Type>
       <AuthType>none</AuthType>
     </role>
-    <role id="53" parent="2" name="db_ddladmin">
+    <role id="55" parent="2" name="db_ddladmin">
       <ObjectId>16387</ObjectId>
       <OwnerId>1</OwnerId>
       <Type>database-role</Type>
       <AuthType>none</AuthType>
     </role>
-    <role id="54" parent="2" name="db_backupoperator">
+    <role id="56" parent="2" name="db_backupoperator">
       <ObjectId>16389</ObjectId>
       <OwnerId>1</OwnerId>
       <Type>database-role</Type>
       <AuthType>none</AuthType>
     </role>
-    <role id="55" parent="2" name="db_datareader">
+    <role id="57" parent="2" name="db_datareader">
       <ObjectId>16390</ObjectId>
       <OwnerId>1</OwnerId>
       <Type>database-role</Type>
       <AuthType>none</AuthType>
     </role>
-    <role id="56" parent="2" name="db_datawriter">
+    <role id="58" parent="2" name="db_datawriter">
       <ObjectId>16391</ObjectId>
       <OwnerId>1</OwnerId>
       <Type>database-role</Type>
       <AuthType>none</AuthType>
     </role>
-    <role id="57" parent="2" name="db_denydatareader">
+    <role id="59" parent="2" name="db_denydatareader">
       <ObjectId>16392</ObjectId>
       <OwnerId>1</OwnerId>
       <Type>database-role</Type>
       <AuthType>none</AuthType>
     </role>
-    <role id="58" parent="2" name="db_denydatawriter">
+    <role id="60" parent="2" name="db_denydatawriter">
       <ObjectId>16393</ObjectId>
       <OwnerId>1</OwnerId>
       <Type>database-role</Type>
       <AuthType>none</AuthType>
     </role>
-    <table id="59" parent="42" name="QUIZUSERS">
+    <table id="61" parent="44" name="QUIZQUESTIONS">
+      <ObjectId>1525580473</ObjectId>
+      <CreatedTimestamp>2021-02-07.18:43:04.870</CreatedTimestamp>
+      <ModifiedTimestamp>2021-02-07.18:43:04.870</ModifiedTimestamp>
+    </table>
+    <table id="62" parent="44" name="QUIZUSERS">
       <ObjectId>885578193</ObjectId>
       <CreatedTimestamp>2021-01-31.15:20:38.537</CreatedTimestamp>
       <ModifiedTimestamp>2021-01-31.15:20:38.537</ModifiedTimestamp>
     </table>
-    <column id="60" parent="59" name="id">
+    <table id="63" parent="44" name="QUIZUSERS2">
+      <ObjectId>1205579333</ObjectId>
+      <CreatedTimestamp>2021-01-31.15:36:13.650</CreatedTimestamp>
+      <ModifiedTimestamp>2021-01-31.15:36:13.650</ModifiedTimestamp>
+    </table>
+    <column id="64" parent="61" name="id">
       <Position>1</Position>
       <SequenceIdentity>1</SequenceIdentity>
       <DataType>int|0s</DataType>
       <NotNull>1</NotNull>
     </column>
-    <column id="61" parent="59" name="username">
+    <column id="65" parent="61" name="question">
       <Position>2</Position>
-      <DataType>nvarchar(1 char)|0s</DataType>
-      <NotNull>1</NotNull>
+      <DataType>nvarchar(250 char)|0s</DataType>
     </column>
-    <column id="62" parent="59" name="pword">
+    <column id="66" parent="61" name="correct_ans">
       <Position>3</Position>
-      <DataType>nvarchar(1 char)|0s</DataType>
-      <NotNull>1</NotNull>
+      <DataType>nvarchar(60 char)|0s</DataType>
     </column>
-    <column id="63" parent="59" name="email">
+    <column id="67" parent="61" name="wrong_ans_1">
       <Position>4</Position>
-      <DataType>nvarchar(1 char)|0s</DataType>
+      <DataType>nvarchar(60 char)|0s</DataType>
     </column>
-    <index id="64" parent="59" name="PK__QUIZUSER__3213E83F596486CD">
+    <column id="68" parent="61" name="wrong_ans_2">
+      <Position>5</Position>
+      <DataType>nvarchar(60 char)|0s</DataType>
+    </column>
+    <index id="69" parent="61" name="PK__QUIZQUES__3213E83F0B1EB600">
       <Position>1</Position>
       <NameSurrogate>1</NameSurrogate>
       <ColNames>id</ColNames>
       <Clustering>1</Clustering>
       <Unique>1</Unique>
     </index>
-    <index id="65" parent="59" name="UQ__QUIZUSER__AB6E61642688E2E0">
+    <key id="70" parent="61" name="PK__QUIZQUES__3213E83F0B1EB600">
+      <ObjectId>1541580530</ObjectId>
+      <NameSurrogate>1</NameSurrogate>
+      <CreatedTimestamp>2021-02-07.18:43:05.003</CreatedTimestamp>
+      <ModifiedTimestamp>2021-02-07.18:43:05.003</ModifiedTimestamp>
+      <ColNames>id</ColNames>
+      <UnderlyingIndexName>PK__QUIZQUES__3213E83F0B1EB600</UnderlyingIndexName>
+      <Primary>1</Primary>
+    </key>
+    <column id="71" parent="62" name="id">
+      <Position>1</Position>
+      <SequenceIdentity>1</SequenceIdentity>
+      <DataType>int|0s</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <column id="72" parent="62" name="username">
+      <Position>2</Position>
+      <DataType>nvarchar(1 char)|0s</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <column id="73" parent="62" name="pword">
+      <Position>3</Position>
+      <DataType>nvarchar(1 char)|0s</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <column id="74" parent="62" name="email">
+      <Position>4</Position>
+      <DataType>nvarchar(1 char)|0s</DataType>
+    </column>
+    <index id="75" parent="62" name="PK__QUIZUSER__3213E83F596486CD">
+      <Position>1</Position>
+      <NameSurrogate>1</NameSurrogate>
+      <ColNames>id</ColNames>
+      <Clustering>1</Clustering>
+      <Unique>1</Unique>
+    </index>
+    <index id="76" parent="62" name="UQ__QUIZUSER__AB6E61642688E2E0">
       <Position>2</Position>
       <NameSurrogate>1</NameSurrogate>
       <ColNames>email</ColNames>
       <Unique>1</Unique>
     </index>
-    <index id="66" parent="59" name="UQ__QUIZUSER__F3DBC5724F31E58A">
+    <index id="77" parent="62" name="UQ__QUIZUSER__F3DBC5724F31E58A">
       <Position>3</Position>
       <NameSurrogate>1</NameSurrogate>
       <ColNames>username</ColNames>
       <Unique>1</Unique>
     </index>
-    <key id="67" parent="59" name="PK__QUIZUSER__3213E83F596486CD">
+    <key id="78" parent="62" name="PK__QUIZUSER__3213E83F596486CD">
       <ObjectId>901578250</ObjectId>
       <NameSurrogate>1</NameSurrogate>
       <CreatedTimestamp>2021-01-31.15:20:38.573</CreatedTimestamp>
@@ -373,7 +431,7 @@
       <UnderlyingIndexName>PK__QUIZUSER__3213E83F596486CD</UnderlyingIndexName>
       <Primary>1</Primary>
     </key>
-    <key id="68" parent="59" name="UQ__QUIZUSER__F3DBC5724F31E58A">
+    <key id="79" parent="62" name="UQ__QUIZUSER__F3DBC5724F31E58A">
       <ObjectId>933578364</ObjectId>
       <NameSurrogate>1</NameSurrogate>
       <CreatedTimestamp>2021-01-31.15:20:38.577</CreatedTimestamp>
@@ -381,13 +439,77 @@
       <ColNames>username</ColNames>
       <UnderlyingIndexName>UQ__QUIZUSER__F3DBC5724F31E58A</UnderlyingIndexName>
     </key>
-    <key id="69" parent="59" name="UQ__QUIZUSER__AB6E61642688E2E0">
+    <key id="80" parent="62" name="UQ__QUIZUSER__AB6E61642688E2E0">
       <ObjectId>917578307</ObjectId>
       <NameSurrogate>1</NameSurrogate>
       <CreatedTimestamp>2021-01-31.15:20:38.573</CreatedTimestamp>
       <ModifiedTimestamp>2021-01-31.15:20:38.573</ModifiedTimestamp>
       <ColNames>email</ColNames>
       <UnderlyingIndexName>UQ__QUIZUSER__AB6E61642688E2E0</UnderlyingIndexName>
+    </key>
+    <column id="81" parent="63" name="id">
+      <Position>1</Position>
+      <SequenceIdentity>1</SequenceIdentity>
+      <DataType>int|0s</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <column id="82" parent="63" name="username">
+      <Position>2</Position>
+      <DataType>varchar(50 char)|0s</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <column id="83" parent="63" name="pword">
+      <Position>3</Position>
+      <DataType>varchar(50 char)|0s</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <column id="84" parent="63" name="email">
+      <Position>4</Position>
+      <DataType>varchar(50 char)|0s</DataType>
+    </column>
+    <index id="85" parent="63" name="PK__QUIZUSER__3213E83F7CE52BB0">
+      <Position>1</Position>
+      <NameSurrogate>1</NameSurrogate>
+      <ColNames>id</ColNames>
+      <Clustering>1</Clustering>
+      <Unique>1</Unique>
+    </index>
+    <index id="86" parent="63" name="UQ__QUIZUSER__AB6E61647A246CB1">
+      <Position>2</Position>
+      <NameSurrogate>1</NameSurrogate>
+      <ColNames>email</ColNames>
+      <Unique>1</Unique>
+    </index>
+    <index id="87" parent="63" name="UQ__QUIZUSER__F3DBC5725DC00439">
+      <Position>3</Position>
+      <NameSurrogate>1</NameSurrogate>
+      <ColNames>username</ColNames>
+      <Unique>1</Unique>
+    </index>
+    <key id="88" parent="63" name="PK__QUIZUSER__3213E83F7CE52BB0">
+      <ObjectId>1221579390</ObjectId>
+      <NameSurrogate>1</NameSurrogate>
+      <CreatedTimestamp>2021-01-31.15:36:13.670</CreatedTimestamp>
+      <ModifiedTimestamp>2021-01-31.15:36:13.670</ModifiedTimestamp>
+      <ColNames>id</ColNames>
+      <UnderlyingIndexName>PK__QUIZUSER__3213E83F7CE52BB0</UnderlyingIndexName>
+      <Primary>1</Primary>
+    </key>
+    <key id="89" parent="63" name="UQ__QUIZUSER__F3DBC5725DC00439">
+      <ObjectId>1253579504</ObjectId>
+      <NameSurrogate>1</NameSurrogate>
+      <CreatedTimestamp>2021-01-31.15:36:13.680</CreatedTimestamp>
+      <ModifiedTimestamp>2021-01-31.15:36:13.680</ModifiedTimestamp>
+      <ColNames>username</ColNames>
+      <UnderlyingIndexName>UQ__QUIZUSER__F3DBC5725DC00439</UnderlyingIndexName>
+    </key>
+    <key id="90" parent="63" name="UQ__QUIZUSER__AB6E61647A246CB1">
+      <ObjectId>1237579447</ObjectId>
+      <NameSurrogate>1</NameSurrogate>
+      <CreatedTimestamp>2021-01-31.15:36:13.673</CreatedTimestamp>
+      <ModifiedTimestamp>2021-01-31.15:36:13.673</ModifiedTimestamp>
+      <ColNames>email</ColNames>
+      <UnderlyingIndexName>UQ__QUIZUSER__AB6E61647A246CB1</UnderlyingIndexName>
     </key>
   </database-model>
 </dataSource>

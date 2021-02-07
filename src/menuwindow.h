@@ -19,9 +19,10 @@ public:
     ~menuWindow() override;
 signals:
     void firstWindow();
+    void newGameSignal();
 private slots:
     void logout();
-    static void newGameSlot();
+    void newGameSlot();
     static void settingsSlot();
 private:
     Ui::menuWindow *ui;

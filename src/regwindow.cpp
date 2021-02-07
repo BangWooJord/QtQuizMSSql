@@ -1,5 +1,6 @@
 #include "regwindow.h"
 #include "ui_regwindow.h"
+#include "layoutHelp.h"
 
 regWindow::regWindow(QWidget *parent) :
     QWidget(parent),
@@ -16,10 +17,25 @@ regWindow::regWindow(QWidget *parent) :
         int ypos = 150;
     user_lbl = createTemplate(user_lbl, this, "Username", SIZE_AND_PLACE(hsize, vsize, xpos, ypos - vsize - 35));
         user_lbl->setAlignment(Qt::AlignRight);
+        user_lbl->setStyleSheet("font-size: 22px;"
+                                " font-weight: 600;"
+                                "border-radius: 25px;"
+                                "color: #990033;"
+                                "padding-right: 20px;");
     pswd_lbl = createTemplate(pswd_lbl, this, "Password", SIZE_AND_PLACE(hsize, vsize, xpos, ypos + vsize - 35));
         pswd_lbl->setAlignment(Qt::AlignRight);
+        pswd_lbl->setStyleSheet("font-size: 22px;"
+                                " font-weight: 600;"
+                                "border-radius: 25px;"
+                                "color: #990033;"
+                                "padding-right: 20px;");
     email_lbl = createTemplate(email_lbl, this, "e-Mail", SIZE_AND_PLACE(hsize, vsize, xpos, ypos + 3*vsize - 35));
         email_lbl->setAlignment(Qt::AlignRight);
+        email_lbl->setStyleSheet("font-size: 22px;"
+                                " font-weight: 600;"
+                                "border-radius: 25px;"
+                                "color: #990033;"
+                                "padding-right: 20px;");
     error_lbl = createTemplate(error_lbl, this, "Username taken", SIZE_AND_PLACE(hsize, vsize, xpos, ypos+3*vsize+50));
         error_lbl->setAlignment(Qt::AlignRight);
         error_lbl->hide();

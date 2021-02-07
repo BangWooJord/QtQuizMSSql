@@ -5,7 +5,6 @@
 #include <QLabel>
 #include <QPushButton>
 #include <QWidget>
-//#include <QtSql/QSqlDatabase>
 #include <QtSql/QSqlQuery>
 #include <iostream>
 #include "layoutHelp.h"

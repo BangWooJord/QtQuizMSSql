@@ -4,6 +4,8 @@
 #include <QWidget>
 #include <QPushButton>
 #include <QLabel>
+#include <iostream>
+#include <QtSql/QSqlQuery>
 #include "layoutHelp.h"
 
 QT_BEGIN_NAMESPACE
@@ -17,10 +19,9 @@ public:
     explicit gameWindow(QWidget *parent = nullptr);
 
     ~gameWindow() override;
-
 private:
     Ui::gameWindow *ui;
-    QPushButton
+    QPushButton *ans[3];
 };
 
 #endif //QUIZGODHELP2_GAMEWINDOW_H

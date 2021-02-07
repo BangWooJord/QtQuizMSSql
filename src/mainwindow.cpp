@@ -140,6 +140,32 @@ void MainWindow::clearFields(){}
 
 ////////METHODS///////////////
 
+
+template <typename T>
+T* createTemplate(T *new_smth, QWidget *p, QString text, SIZE_AND_PLACE sp){
+    new_smth = new T(text, p);
+    new_smth->setGeometry(QRect(QPoint(sp.xpos, sp.ypos), QSize(sp.hsize, sp.vsize)));
+    new_smth->setStyleSheet("font-size: 22px;"
+                            " font-weight: 600;"
+                            "border-radius: 25px;"
+                            "color: #990033;"
+                            "padding-right: 20px;");
+
+    return new_smth;
+}
+
+template <typename T>
+T* createTemplate(T *new_smth, QWidget *p, QString text){
+    new_smth = new T(text, p);
+    new_smth->setStyleSheet("font-size: 22px;"
+                            " font-weight: 600;"
+                            "border-radius: 25px;"
+                            "color: #990033;"
+                            "padding-right: 20px;");
+
+    return new_smth;
+}
+
 void MainWindow::connectToDb(QString db_protocol, QString ip, QString db_name){
     QSqlDatabase qdb = QSqlDatabase::addDatabase(db_protocol);
         qdb.setConnectOptions();
@@ -158,16 +184,4 @@ void MainWindow::keyPressEvent(QKeyEvent *event){
         emit(submit_btn->clicked());
         break;
     }
-}
-
-void MainWindow::paintEvent(QPaintEvent *event){
-
-    QPen pen;
-    pen.setColor(Qt::green);
-    pen.setWidth(5);
-
-    QPainter painter(this);
-    painter.setPen(pen);
-    painter.setBrush(Qt::SolidPattern);
-    //painter.drawRect(QRect(100, 0, 400,50));
 }

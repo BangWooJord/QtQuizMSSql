@@ -9,6 +9,7 @@
 #include <iostream>
 #include "layoutHelp.h"
 #include "menuwindow.h"
+#include "gamewindow.h"
 
 namespace Ui {
 class secWindow;
@@ -24,13 +25,15 @@ public:
 
 signals:
     void firstWindow();
-public slots:
+private slots:
     void exitApp();
     void logOutSlot();
+    void startNewGame();
 private:
     Ui::secWindow *ui;
     QStackedWidget *widget_stack;
     menuWindow *menu_window;
+    gameWindow *game_window;
 };
 
 #endif // secWindow_H
