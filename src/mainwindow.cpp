@@ -170,12 +170,12 @@ void MainWindow::connectToDb(QString db_protocol, QString ip, QString db_name){
     QSqlDatabase qdb = QSqlDatabase::addDatabase(db_protocol);
         qdb.setConnectOptions();
         //MSSQLSERVER01//
-        QString connectionString =  QString("DRIVER={ODBC Driver 17 for SQL Server};Server=%1;Database=%2;Trusted_Connection=Yes;").arg(ip,db_name);
+        QString connectionString =  "DRIVER={ODBC Driver 17 for SQL Server};Server=%1;Database=%2;Trusted_Connection=Yes;";
+                connectionString = connectionString.arg(ip,db_name);
         qdb.setDatabaseName(connectionString);
         qdb.setUserName("clion_admin");
         qdb.setPassword("admin");
-        bool connectionSuccessful = qdb.open();
-        std::cout << "Connection to database: " << connectionSuccessful << std::endl;
+        std::cout << "Connection to database: " << qdb.open() << std::endl;
 }
 
 void MainWindow::keyPressEvent(QKeyEvent *event){

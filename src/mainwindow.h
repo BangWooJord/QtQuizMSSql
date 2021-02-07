@@ -11,8 +11,6 @@
 #include <iostream>
 #include "secwindow.h"
 #include "regwindow.h"
-#include <QPainter>
-#include <QPen>
 #include <QStackedWidget>
 #include <QRect>
 
