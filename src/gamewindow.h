@@ -26,6 +26,7 @@ private:
     Ui::gameWindow *ui;
     QLabel *question_lbl;
     QLabel *score_lbl;
+    int score;
     QPushButton *ans_btn[3];
     std::vector<int> questions_id;
     QSqlQuery query;
