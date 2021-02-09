@@ -17,7 +17,7 @@ gameWindow::gameWindow(QWidget *parent) :
         }
         srand(time(0));
     int rand_id = questions_id[rand() % questions_id.size()];
-    std::vector<int>::iterator it = remove(questions_id.begin(), questions_id.end(), rand_id);
+    questions_id.erase(std::remove(questions_id.begin(), questions_id.end(), rand_id), questions_id.end());
     QString question_query = "SELECT * FROM QUIZQUESTIONS WHERE id='%1'";
         question_query = question_query.arg(rand_id);
         query.exec(question_query);
@@ -29,7 +29,7 @@ gameWindow::gameWindow(QWidget *parent) :
     for(int i = 0; i < 3; ++i){
         srand(time(0));
         int place = place_arr[rand() % place_arr.size()];
-        std::vector<int>::iterator place_it = remove(place_arr.begin(), place_arr.end(), place);
+        place_arr.erase(std::remove(place_arr.begin(), place_arr.end(), place), place_arr.end());
         ans_btn[i] = createTemplate(ans_btn[i], this, query.value(place).toString(), SIZE_AND_PLACE(hsize, vsize, xpos, ypos+vsize*1.33*i));
         ans_btn[i]->setCursor(Qt::PointingHandCursor);
         ans_btn[i]->setStyleSheet("QPushButton{"
@@ -44,6 +44,7 @@ gameWindow::gameWindow(QWidget *parent) :
         connect(ans_btn[i], SIGNAL(clicked()), this, SLOT(changeQuestion()));
     }
     score = 0;
+    question_num = 0;
     score_lbl = createTemplate(score_lbl, this, QString("Score: %1").arg(score), SIZE_AND_PLACE(hsize, vsize, xpos, ypos + vsize*4));
 }
 
@@ -64,15 +65,21 @@ void gameWindow::changeQuestion() {
         std::cout << "ubi machine broke" <<std::endl;
     }
 
+    question_num++;
+
     srand(time(0));
     int rand_id = questions_id[rand() % questions_id.size()];
-    std::vector<int>::iterator it = remove(questions_id.begin(), questions_id.end(), rand_id);
+    questions_id.erase(std::remove(questions_id.begin(), questions_id.end(), rand_id), questions_id.end());
     QString question_query = "SELECT * FROM QUIZQUESTIONS WHERE id='%1'";
         question_query = question_query.arg(rand_id);
     query.exec(question_query);
         query.first();
     question_lbl->setText(query.value(1).toString());
+    std::vector<int> place_arr = {2,3,4};
     for(int i = 0; i < 3; ++i){
-        ans_btn[i]->setText(query.value(i+2).toString());
+        srand(time(0));
+        int place = place_arr[rand() % place_arr.size()];
+        place_arr.erase(std::remove(place_arr.begin(), place_arr.end(), place), place_arr.end());
+        ans_btn[i]->setText(query.value(place).toString());
     }
 }
