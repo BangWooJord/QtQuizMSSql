@@ -2,6 +2,7 @@
 #define MAINWRAP_H
 
 #include <QWidget>
+#include <QPushButton>
 #include <QStackedWidget>
 #include <QKeyEvent>
 #include <QtGui>
@@ -29,6 +30,7 @@ private slots:
 private:
     Ui::mainWrap *ui;
     QStackedWidget *widget_stack;
+    QPushButton *exit_btn;
     MainWindow *main_window;
     regWindow *reg_window;
     secWindow *second_window;

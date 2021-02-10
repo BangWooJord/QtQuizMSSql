@@ -8,6 +8,10 @@ mainWrap::mainWrap(QWidget *parent) :
     ui->setupUi(this);
         this->setFixedSize(400,450);
         this->setAttribute(Qt::WA_TranslucentBackground);
+    QWidget *bg_widget = new QWidget(this);
+        bg_widget->setGeometry(0,0,400,450);
+        bg_widget->setStyleSheet("background-color: #1c172e;"
+                                 "border-radius: 15px;");
     main_window = new MainWindow(this);
         connect(main_window, &MainWindow::leaveApp, this, &mainWrap::exitApp);
         connect(main_window, &MainWindow::secondWindow, this, &mainWrap::secondWindow);
@@ -19,8 +23,25 @@ mainWrap::mainWrap(QWidget *parent) :
     second_window = new secWindow(this);
         connect(second_window, &secWindow::firstWindow, this, &mainWrap::returnMain);
 
+    exit_btn = createTemplate(exit_btn, this, "x", SIZE_AND_PLACE(30, 30, 360, 10));
+        connect(exit_btn, SIGNAL(clicked()), this, SLOT(exitApp()));
+        exit_btn->setStyleSheet("QPushButton{"
+                                "background-color: #880033;"
+                                "color: white;"
+                                "font-weight: 800;"
+                                "font-size: 22px;"
+                                "padding-bottom: 5px;"
+                                "border-radius: 10px;}"
+                                "QPushButton:hover{"
+                                "background-color: #990044;}"
+                                "QPushButton:focus{outline:none;}");
+        exit_btn->setCursor(Qt::PointingHandCursor);
+        exit_btn->show();
+        exit_btn->activateWindow();
+        exit_btn->raise();
+
     widget_stack = new QStackedWidget(this);
-        widget_stack->setGeometry(QRect(0,0, 400, 450));
+        widget_stack->setGeometry(QRect(0,50, 400, 400));
         widget_stack->addWidget(main_window);
         widget_stack->addWidget(reg_window);
         widget_stack->addWidget(second_window);

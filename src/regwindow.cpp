@@ -14,7 +14,7 @@ regWindow::regWindow(QWidget *parent) :
     int hsize = 300;
         int vsize = 50;
         int xpos = 50;
-        int ypos = 150;
+        int ypos = 90;
     user_lbl = createTemplate(user_lbl, this, "Username", SIZE_AND_PLACE(hsize, vsize, xpos, ypos - vsize - 35));
         user_lbl->setAlignment(Qt::AlignRight);
         user_lbl->setStyleSheet("font-size: 22px;"
@@ -36,9 +36,9 @@ regWindow::regWindow(QWidget *parent) :
                                 "border-radius: 25px;"
                                 "color: #990033;"
                                 "padding-right: 20px;");
-    error_lbl = createTemplate(error_lbl, this, "Username taken", SIZE_AND_PLACE(hsize, vsize, xpos, ypos+3*vsize+50));
-        error_lbl->setAlignment(Qt::AlignRight);
-        error_lbl->hide();
+    alert_lbl = createTemplate(alert_lbl, this, "Username taken", SIZE_AND_PLACE(hsize, vsize, xpos, ypos+3*vsize+55));
+        alert_lbl->setAlignment(Qt::AlignRight);
+        alert_lbl->hide();
     username = createTemplate(username, this, "", SIZE_AND_PLACE(hsize, vsize, xpos, ypos - vsize));
         username->setStyleSheet("border-radius: 25px;"
                                 "background-color: #382860;"
@@ -63,7 +63,7 @@ regWindow::regWindow(QWidget *parent) :
                              "font-weight: 500;"
                              "padding-right: 20px;");
         email->setAlignment(Qt::AlignRight);
-    back_btn = createTemplate(back_btn, this, "Go back", SIZE_AND_PLACE(120, vsize, xpos , ypos + 4.5*vsize));
+    back_btn = createTemplate(back_btn, this, "Go back", SIZE_AND_PLACE(120, vsize, xpos , ypos + 4.8*vsize));
         back_btn->setStyleSheet("QPushButton{background-color: #222233;"
                                 "color: black;"
                                 "font-size: 22px;"
@@ -71,7 +71,7 @@ regWindow::regWindow(QWidget *parent) :
                                 "QPushButton:hover{background-color: #333344;}"
                                 "QPushButton:focus{outline: none;}");
         back_btn->setCursor(Qt::PointingHandCursor);
-    reg_btn = createTemplate(reg_btn, this, "Sign up", SIZE_AND_PLACE(hsize-120, vsize, xpos + 130, ypos + 4.5*vsize));
+    reg_btn = createTemplate(reg_btn, this, "Sign up", SIZE_AND_PLACE(hsize-130, vsize, xpos + 130, ypos + 4.8*vsize));
         connect(reg_btn, SIGNAL(clicked()), this, SLOT(signUpQuery()));
         reg_btn->setStyleSheet("QPushButton{background-color: #880033;"
                                 "color: black;"
@@ -102,18 +102,20 @@ void regWindow::signUpQuery(){
     QSqlQuery query;
     query.exec(sign_up_query);
         if(query.next()){
-            error_lbl->show();
+            alert_lbl->show();
         }
         else{
             if(password->text() == ""){
-                error_lbl->setText("Input password");
-                error_lbl->show();
+                alert_lbl->setText("Input password");
+                alert_lbl->show();
             }
             else{
                 sign_up_query = "INSERT INTO QUIZUSERS2 (username, pword, email)"
                                 "VALUES ('%1','%2','%3')";
                     sign_up_query = sign_up_query.arg(username->text(), password->text(), email->text());
                     query.exec(sign_up_query);
+                alert_lbl->setText("Sign up completed!");
+                    alert_lbl->show();
                 std::cout << "SQL INSERT COMPLETE" << std::endl;
             }
         }
@@ -123,5 +125,5 @@ void regWindow::clearFields(){
     username->clear();
     password->clear();
     email->clear();
-    error_lbl->hide();
+    alert_lbl->hide();
 }

@@ -32,7 +32,7 @@ private:
     QLabel *user_lbl;
     QLabel *pswd_lbl;
     QLabel *email_lbl;
-    QLabel *error_lbl;
+    QLabel *alert_lbl;
     QLineEdit *username;
     QLineEdit *password;
     QLineEdit *email;

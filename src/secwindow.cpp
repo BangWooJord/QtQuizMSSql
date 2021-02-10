@@ -16,7 +16,7 @@ secWindow::secWindow(QWidget *parent) :
     game_window = new gameWindow(this);
         connect(game_window, &gameWindow::backToMenuSignal, this, &secWindow::openMenu);
     widget_stack = new QStackedWidget(this);
-        widget_stack->setGeometry(QRect(0,50, 400, 400));
+        widget_stack->setGeometry(QRect(0,0, 400, 400));
         widget_stack->addWidget(menu_window);
         widget_stack->addWidget(game_window);
         widget_stack->show();

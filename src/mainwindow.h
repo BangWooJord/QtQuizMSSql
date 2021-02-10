@@ -29,7 +29,6 @@ public:
 private slots:
     void logIn();
     void registerWindow();
-    void exitApp();
 public slots:
     void returnToMain();
     void clearFields();
@@ -40,12 +39,10 @@ signals:
 private:
     Ui::MainWindow *ui;
     QPushButton *submit_btn;
-    QPushButton *exit_btn;
     QPushButton *register_btn;
     QLabel *usr_lbl;
     QLabel *pswd_lbl;
     QLabel *warning_lbl;
-    QLabel *empty_pswd_lbl;
     QLabel *title_lbl;
     QLineEdit *username;
     QLineEdit *password;
