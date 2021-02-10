@@ -52,7 +52,7 @@ gameWindow::~gameWindow() {
     delete ui;
 }
 
-//////////METHODS////////////////////
+///////////SLOTS////////////////////
 
 void gameWindow::changeQuestion() {
     auto *sender_btn = qobject_cast<QPushButton*>(sender());
@@ -67,19 +67,41 @@ void gameWindow::changeQuestion() {
 
     question_num++;
 
-    srand(time(0));
-    int rand_id = questions_id[rand() % questions_id.size()];
-    questions_id.erase(std::remove(questions_id.begin(), questions_id.end(), rand_id), questions_id.end());
-    QString question_query = "SELECT * FROM QUIZQUESTIONS WHERE id='%1'";
-        question_query = question_query.arg(rand_id);
-    query.exec(question_query);
-        query.first();
-    question_lbl->setText(query.value(1).toString());
-    std::vector<int> place_arr = {2,3,4};
-    for(int i = 0; i < 3; ++i){
-        srand(time(0));
-        int place = place_arr[rand() % place_arr.size()];
-        place_arr.erase(std::remove(place_arr.begin(), place_arr.end(), place), place_arr.end());
-        ans_btn[i]->setText(query.value(place).toString());
+    if(question_num == 5) {
+        gameEnd();
     }
+    else {
+        srand(time(0));
+        int rand_id = questions_id[rand() % questions_id.size()];
+        questions_id.erase(std::remove(questions_id.begin(), questions_id.end(), rand_id), questions_id.end());
+        QString question_query = "SELECT * FROM QUIZQUESTIONS WHERE id='%1'";
+        question_query = question_query.arg(rand_id);
+        query.exec(question_query);
+        query.first();
+        question_lbl->setText(query.value(1).toString());
+        std::vector<int> place_arr = {2, 3, 4};
+        for (int i = 0; i < 3; ++i) {
+            srand(time(0));
+            int place = place_arr[rand() % place_arr.size()];
+            place_arr.erase(std::remove(place_arr.begin(), place_arr.end(), place), place_arr.end());
+            ans_btn[i]->setText(query.value(place).toString());
+        }
+    }
+}
+
+void gameWindow::backToMenu() {
+    emit backToMenuSignal();
+}
+
+//////////METHODS////////////////////
+
+void gameWindow::gameEnd(){
+    score_lbl->hide();
+    question_lbl->hide();
+    for(int i = 0; i < 3; ++i) ans_btn[i]->hide();
+    final_lbl = createTemplate(final_lbl, this, QString("Game over! \n Your score: %1").arg(score), SIZE_AND_PLACE(260, 50, 70, 100));
+        final_lbl->show();
+    go_back_btn = createTemplate(go_back_btn, this, "Back to menu", SIZE_AND_PLACE(260, 60, 70, 170));
+        connect(go_back_btn, SIGNAL(clicked()), this, SLOT(backToMenu()));
+        go_back_btn->show();
 }

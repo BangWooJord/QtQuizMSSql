@@ -20,8 +20,13 @@ Q_OBJECT
 public:
     explicit gameWindow(QWidget *parent = nullptr);
     ~gameWindow() override;
+    void gameEnd();
+
+signals:
+    void backToMenuSignal();
 private slots:
     void changeQuestion();
+    void backToMenu();
 private:
     Ui::gameWindow *ui;
     QLabel *question_lbl;

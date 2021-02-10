@@ -28,6 +28,7 @@ signals:
 private slots:
     void exitApp();
     void logOutSlot();
+    void openMenu();
     void startNewGame();
 private:
     Ui::secWindow *ui;

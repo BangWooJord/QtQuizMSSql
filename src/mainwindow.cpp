@@ -106,7 +106,6 @@ void MainWindow::logIn(){
             query.exec(login_query);
             query.first();
             QString db_pswd = query.value(2).toString();
-            std::cout<< db_pswd.toStdString() << std::endl;
         if(app_pswd == db_pswd){
             emit secondWindow();
         }
