@@ -1,5 +1,5 @@
 #include <QApplication>
-#include "src/mainwrap.h"
+#include "src/header/mainwrap.h"
 
 int main(int argc, char *argv[]) {
     QApplication a(argc, argv);

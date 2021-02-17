@@ -1,4 +1,4 @@
-#include "secwindow.h"
+#include "../header/secwindow.h"
 #include "ui_secwindow.h"
 
 secWindow::secWindow(QWidget *parent) :

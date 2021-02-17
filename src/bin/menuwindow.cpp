@@ -1,4 +1,4 @@
-#include "menuwindow.h"
+#include "../header/menuwindow.h"
 #include "ui_menuwindow.h"
 
 menuWindow::menuWindow(QWidget *parent) :

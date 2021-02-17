@@ -1,6 +1,6 @@
-#include "regwindow.h"
+#include "../header/regwindow.h"
 #include "ui_regwindow.h"
-#include "layoutHelp.h"
+#include "../header/layoutHelp.h"
 
 regWindow::regWindow(QWidget *parent) :
     QWidget(parent),

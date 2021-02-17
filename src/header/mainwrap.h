@@ -28,6 +28,10 @@ private slots:
     void registerWindow();
     void returnMain();
 private:
+    void mousePressEvent(QMouseEvent *event);
+    void mouseMoveEvent(QMouseEvent *event);
+    int m_nMouseClick_X_Coordinate;
+    int m_nMouseClick_Y_Coordinate;
     Ui::mainWrap *ui;
     QStackedWidget *widget_stack;
     QPushButton *exit_btn;

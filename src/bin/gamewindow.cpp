@@ -1,4 +1,4 @@
-#include "gamewindow.h"
+#include "../header/gamewindow.h"
 #include "ui_gamewindow.h"
 
 gameWindow::gameWindow(QWidget *parent) :

@@ -1,4 +1,4 @@
-#include "layoutHelp.h"
+#include "../header/layoutHelp.h"
 
 SIZE_AND_PLACE::SIZE_AND_PLACE() {
     hsize =10;
